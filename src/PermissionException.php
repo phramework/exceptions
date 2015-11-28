@@ -20,7 +20,7 @@ namespace Phramework\Exceptions;
  * PermissionException
  * Used to throw an \Exception, when there requested resource is not available for current user.
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
- * @author Spafaridis Xenophon <nohponex@gmail.com>
+ * @author Xenofon Spafaridis <nohponex@gmail.com>
  */
 class PermissionException extends \Exception
 {

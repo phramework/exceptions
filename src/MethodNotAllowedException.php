@@ -21,7 +21,7 @@ namespace Phramework\Exceptions;
  * Used to throw an \Exception, when this method is not allowed
  * to apply to this resource, or the current status of the resource.
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
- * @author Spafaridis Xenophon <nohponex@gmail.com>
+ * @author Xenofon Spafaridis <nohponex@gmail.com>
  */
 class MethodNotAllowedException extends \Exception
 {

@@ -20,7 +20,7 @@ namespace Phramework\Exceptions;
  * DatabaseException
  * Used to throw an \Exception, when there is something wrong with a Database request.
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
- * @author Spafaridis Xenophon <nohponex@gmail.com>
+ * @author Xenofon Spafaridis <nohponex@gmail.com>
  */
 class DatabaseException extends \Exception
 {

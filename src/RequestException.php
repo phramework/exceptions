@@ -20,7 +20,7 @@ namespace Phramework\Exceptions;
  * RequestException
  * Used to throw an \Exception, when there is something wrong with the request.
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
- * @author Spafaridis Xenophon <nohponex@gmail.com>
+ * @author Xenofon Spafaridis <nohponex@gmail.com>
  * @todo cleanup codes
  */
 class RequestException extends \Exception

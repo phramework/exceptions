@@ -22,7 +22,7 @@ namespace Phramework\Exceptions;
  * The server has not found anything matching the Request-URI.
  * No indication is given of whether the condition is temporary or permanent.
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
- * @author Spafaridis Xenophon <nohponex@gmail.com>
+ * @author Xenofon Spafaridis <nohponex@gmail.com>
  */
 class NotFoundException extends \Exception
 {
