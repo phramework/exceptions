@@ -25,9 +25,13 @@ namespace Phramework\Exceptions;
  */
 class ServerException extends Exception
 {
+    /**
+     * @param string $message Exception message
+     * @param int    $code Exception code
+     */
     public function __construct(
-        $message = 'Internal Server Error',
-        $code = 500
+        string $message = 'Internal Server Error',
+        int $code = 500
     ) {
         parent::__construct($message, $code);
     }

@@ -37,7 +37,9 @@ class MissingParametersException extends Exception
     private $source;
 
     /**
-     * @param string[] $parameters Array with the names of missing parameters
+     * @param string[]     $parameters Array with the names of
+     *     missing parameters
+     * @param ISource|null $source Source of parameter
      */
     public function __construct(
         array $parameters,
@@ -52,7 +54,7 @@ class MissingParametersException extends Exception
     /**
      * @return string[]
      */
-    public function getParameters()
+    public function getParameters() : array
     {
         return $this->parameters;
     }

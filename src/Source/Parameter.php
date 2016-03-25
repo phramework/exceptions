@@ -19,7 +19,7 @@ namespace Phramework\Exceptions\Source;
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  * @since 1.0.0
  */
-class Parameter implements ISource
+class Parameter implements ISource, \JsonSerializable
 {
     /**
      * @var string
@@ -35,7 +35,7 @@ class Parameter implements ISource
      * new Parameter('value');
      * ```
      */
-    public function __construct($parameter)
+    public function __construct(string $parameter)
     {
         $this->parameter = $parameter;
     }
@@ -54,5 +54,12 @@ class Parameter implements ISource
     public function getType() : string
     {
         return 'parameter';
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'parameter' => $this->parameter
+        ];
     }
 }

@@ -31,8 +31,9 @@ class IncorrectParametersException extends Exception
     /**
      * @param IncorrectParameterException[] $parameters Incorrect parameters
      */
-    public function __construct(IncorrectParameterException ...$parameters)
-    {
+    public function __construct(
+        IncorrectParameterException ...$parameters
+    ) {
         parent::__construct('Incorrect parameters', 422);
         $this->parameters = $parameters;
     }

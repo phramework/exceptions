@@ -20,7 +20,7 @@ namespace Phramework\Exceptions\Source;
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  * @since 1.0.0
  */
-class Pointer implements ISource
+class Pointer implements ISource, \JsonSerializable
 {
     /**
      * @var string
@@ -67,7 +67,7 @@ class Pointer implements ISource
      * new Pointer('/0/attributes/value');
      * ```
      */
-    public function __construct($pointer)
+    public function __construct(string $pointer)
     {
         $this->pointer = $pointer;
     }
@@ -86,5 +86,17 @@ class Pointer implements ISource
     public function getType() : string
     {
         return 'pointer';
+    }
+
+    /**
+     * Following JSON API implementation
+     * source: an object containing references to the source of the error.
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'pointer' => $this->pointer
+        ];
     }
 }

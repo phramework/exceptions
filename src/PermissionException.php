@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2015 - 2016 Xenofon Spafaridis
+ * Copyright 2015-2016 Xenofon Spafaridis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,17 +28,23 @@ class PermissionException extends Exception
     private $return;
 
     /**
-     *
-     * @param string $message \Exception message
-     * @param string $return Return url. Optional, default is FALSE.
+     * @param string      $message Exception message
+     * @param string|null $return Return url
+     * @param int         $code Exception code
      */
-    public function __construct($message, $return = false)
-    {
+    public function __construct(
+        string $message,
+        string $return = null,
+        int $code = 403
+    ) {
         parent::__construct($message, 403);
         $this->return = $return;
     }
 
-    public function getReturn()
+    /**
+     * @return string|null
+     */
+    public function getReturn() : string
     {
         return $this->return;
     }

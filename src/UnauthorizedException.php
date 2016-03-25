@@ -17,30 +17,36 @@
 namespace Phramework\Exceptions;
 
 /**
- * PermissionException
- * Used to throw an \Exception, when there requested resource is not available for current user.
+ * Used to throw exception when user is not authorized for this request
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  */
 class UnauthorizedException extends Exception
 {
     /**
-     * @var null|string
+     * @var string|null
      */
     private $return;
 
     /**
-     *
-     * @param string $message \Exception message
+     * @param string $message Exception message
      * @param string|null $return Return url. Optional, default is FALSE.
+     * @param int    $code Exception code
      */
-    public function __construct($message = 'Unauthorized', $return = null)
-    {
-        parent::__construct($message, 401);
+    public function __construct(
+        string $message = 'Unauthorized',
+        string $return = null,
+        int $code = 401
+    ) {
+        parent::__construct($message, $code);
+
         $this->return = $return;
     }
 
-    public function getReturn()
+    /**
+     * @return null|string
+     */
+    public function getReturn() : string
     {
         return $this->return;
     }

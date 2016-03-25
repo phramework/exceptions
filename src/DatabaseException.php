@@ -26,15 +26,16 @@ namespace Phramework\Exceptions;
 class DatabaseException extends Exception
 {
     /**
-     * Database \Exception
-     *
-     * @todo Notify administrators
+     * Database exception
+     * @todo Notify administrators (callback maybe?)
      * @param string $message \Exception message
      * @param string $error Internal error message
      * @todo add debug state
      */
-    public function __construct($message, $error = null)
-    {
+    public function __construct(
+        string $message,
+        string $error = null
+    ) {
         //if (\Phramework\Phramework::getSetting('debug') && $error) {
         //    parent::__construct($error, 500);
         //} else {

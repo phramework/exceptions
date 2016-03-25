@@ -23,15 +23,8 @@ use Phramework\Exceptions\Source\ISource;
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  * @since 1.0.0
  */
-class IncorrectParameterException
-    extends Exception
-    implements \JsonSerializable
+class IncorrectParameterException extends Exception implements \JsonSerializable
 {
-    /**
-     * @var string
-     */
-    private $parameter;
-
     /**
      * @var ISource|null
      */
@@ -43,39 +36,36 @@ class IncorrectParameterException
     private $failure;
 
     /**
-     * @param string $parameter Array with the names of incorrect parameters
-     * @throws \Exception
+     * @var string|null
+     */
+    private $detail;
+
+    /**
+     * IncorrectParameterException constructor.
+     * @param string       $failure A sort reason of the problem,
+     *     for example `length` or `type`
+     * @param string|null  $detail  A human-readable explanation specific
+     *     to this occurrence of the problem
+     * @param ISource|null $source Source of the parameter
+     * @example
+     * ```php
+     * throw new IncorrectParameterException(
+     *     'type',
+     *     'Has incorrect type, integer expected',
+     *     new Pointer('/data/attributes/value')
+     * );
+     * ```
      */
     public function __construct(
-        string $failure = 'incorrect',
-        ISource $source = null,
-        string $parameter = null
+        string  $failure = 'incorrect',
+        string  $detail = null,
+        ISource $source = null
     ) {
-        //if (!is_string($parameter)) {
-        //    throw new \Exception ('IncorrectParameterException parameter must be string');
-        //}
-
         parent::__construct('Incorrect parameter', 422);
-        
-        $this->parameter = $parameter;
-        $this->source    = $source;
-        $this->failure   = $failure;
-    }
 
-    /**
-     * @return string
-     */
-    public function getParameter() : string
-    {
-        return $this->parameter;
-    }
-
-    /**
-     * @return ISource|null
-     */
-    public function getSource() : ISource
-    {
-        return $this->source;
+        $this->failure = $failure;
+        $this->detail  = $detail;
+        $this->source  = $source;
     }
 
     /**
@@ -84,6 +74,22 @@ class IncorrectParameterException
     public function getFailure() : string
     {
         return $this->failure;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDetail()
+    {
+        return $this->detail;
+    }
+
+    /**
+     * @return ISource|null
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 
     public function jsonSerialize()

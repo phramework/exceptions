@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2015 - 2016 Xenofon Spafaridis
+ * Copyright 2015-2016 Xenofon Spafaridis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,8 +27,9 @@ class ForbiddenException extends Exception
     /**
      * @param string $message Exception message
      */
-    public function __construct($message)
-    {
+    public function __construct(
+        string $message
+    ) {
         parent::__construct($message, 403);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2015 - 2016 Xenofon Spafaridis
+ * Copyright 2015-2016 Xenofon Spafaridis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,9 +36,9 @@ class MethodNotAllowedException extends Exception
      * @param integer $code Error code, Optional default 405
      */
     public function __construct(
-        $message = 'Method not allowed',
-        $allowedMethods = [],
-        $code = 405
+        string $message = 'Method not allowed',
+        array $allowedMethods = [],
+        int $code = 405
     ) {
         parent::__construct($message, $code);
         $this->allowedMethods = $allowedMethods;
@@ -47,7 +47,7 @@ class MethodNotAllowedException extends Exception
     /**
      * @return string[]
      */
-    public function getAllowedMethods()
+    public function getAllowedMethods() : array
     {
         return  $this->allowedMethods;
     }

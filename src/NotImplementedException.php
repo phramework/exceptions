@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2015 - 2016 Xenofon Spafaridis
+ * Copyright 2015-2016 Xenofon Spafaridis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,14 @@ namespace Phramework\Exceptions;
  */
 class NotImplementedException extends Exception
 {
-    public function __construct($message = 'Not Implemented', $code = 501)
-    {
+    /**
+     * @param string $message Exception message
+     * @param int    $code Exception code
+     */
+    public function __construct(
+        string $message = 'Not Implemented',
+        int $code = 501
+    ) {
         parent::__construct($message, $code);
     }
 }
