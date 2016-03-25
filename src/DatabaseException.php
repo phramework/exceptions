@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2015 Xenofon Spafaridis
+ * Copyright 2015-2016 Xenofon Spafaridis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,8 @@ namespace Phramework\Exceptions;
 
 /**
  * DatabaseException
- * Used to throw an \Exception, when there is something wrong with a Database request.
+ * Used to throw an \Exception, when there is something wrong
+ * with a database request.
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  */
@@ -30,13 +31,14 @@ class DatabaseException extends \Exception
      * @todo Notify administrators
      * @param string $message \Exception message
      * @param string $error Internal error message
+     * @todo add debug state
      */
     public function __construct($message, $error = null)
     {
-        if (\Phramework\Phramework::getSetting('debug') && $error) {
-            parent::__construct($error, 500);
-        } else {
-            parent::__construct($message, 500);
-        }
+        //if (\Phramework\Phramework::getSetting('debug') && $error) {
+        //    parent::__construct($error, 500);
+        //} else {
+        parent::__construct($message, 500);
+        //}
     }
 }

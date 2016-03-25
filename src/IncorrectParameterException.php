@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2015 - 2016 Spafaridis Xenofon
+ * Copyright 2015-2016 Spafaridis Xenofon
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,8 +44,11 @@ class IncorrectParameterException extends \Exception implements \JsonSerializabl
      * @param string $parameter Array with the names of incorrect parameters
      * @throws \Exception
      */
-    public function __construct($failure = 'incorrect', ISource $source = null, $parameter = null)
-    {
+    public function __construct(
+        $failure = 'incorrect',
+        ISource $source = null,
+        $parameter = null
+    ) {
         //if (!is_string($parameter)) {
         //    throw new \Exception ('IncorrectParameterException parameter must be string');
         //}
