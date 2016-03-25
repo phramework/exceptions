@@ -23,7 +23,7 @@ namespace Phramework\Exceptions;
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  * @todo cleanup codes
  */
-class RequestException extends \Exception
+class RequestException extends Exception
 {
     /**
      *
@@ -37,6 +37,7 @@ class RequestException extends \Exception
         if (isset($errors[$code])) {
             $message = $errors[$code];
         }
+        
         parent::__construct($message, $code);
     }
 }

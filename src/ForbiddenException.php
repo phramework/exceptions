@@ -22,10 +22,10 @@ namespace Phramework\Exceptions;
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  * @since 1.0.0
  */
-class ForbiddenException extends \Exception
+class ForbiddenException extends Exception
 {
     /**
-     * @param string $message \Exception message
+     * @param string $message Exception message
      */
     public function __construct($message)
     {

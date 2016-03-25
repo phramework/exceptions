@@ -11,11 +11,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 namespace Phramework\Exceptions\Source;
 
-
 /**
+ * JSON pointer
+ * @link See more about JSON pointers https://tools.ietf.org/html/rfc6901
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  * @since 1.0.0
@@ -29,6 +29,43 @@ class Pointer implements ISource
 
     /**
      * @param string $pointer
+     * @example
+     * ```php
+     * // Given JSON structure:
+     * //{
+     * //  "data": {
+     * //    "id": "10",
+     * //    "attributes": {
+     * //      "value": "ok"
+     * //    }
+     * // }
+     * //}
+     * new Pointer('/data/attributes/value');
+     * ```
+     * @example
+     * ```php
+     * // Given JSON structure:
+     * //{
+     * //  "data": [{
+     * //    "id": "10",
+     * //    "attributes": {
+     * //      "value": "ok"
+     * //    }
+     * // }]
+     * //}
+     * new Pointer('/data/0/attributes/value');
+     * ```
+     * @example
+     * ```php
+     * // Given JSON structure:
+     * //[{
+     * //  "id": "10",
+     * //  "attributes": {
+     * //    "value": "ok"
+     * //  }
+     * //}]
+     * new Pointer('/0/attributes/value');
+     * ```
      */
     public function __construct($pointer)
     {
@@ -38,7 +75,7 @@ class Pointer implements ISource
     /**
      * @return string
      */
-    public function getPath()
+    public function getPath() : string
     {
         return $this->pointer;
     }
@@ -46,7 +83,7 @@ class Pointer implements ISource
     /**
      * @return string
      */
-    public function getType()
+    public function getType() : string
     {
         return 'pointer';
     }

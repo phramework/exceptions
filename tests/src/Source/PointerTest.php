@@ -14,31 +14,52 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Phramework\Exceptions;
+namespace Phramework\Exceptions\Source;
 
 /**
- * Used to throw an exception, when there are incorrect parameters
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
  * @author Xenofon Spafaridis <nohponex@gmail.com>
+ * @coversDefaultClass Phramework\Exceptions\Source\Pointer
  */
-class IncorrectParametersException extends Exception
+class PointerTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var IncorrectParameterException[]
+     * @var Pointer
      */
-    private $parameters;
+    private $pointer;
 
-    /**
-     * @param IncorrectParameterException[] $parameters Incorrect parameters
-     */
-    public function __construct(IncorrectParameterException ...$parameters)
+    protected function setUp()
     {
-        parent::__construct('Incorrect parameters', 422);
-        $this->parameters = $parameters;
+        $this->pointer = new Pointer('value');
     }
 
-    public function getParameters() : array
+    /**
+     * @covers ::__construct
+     */
+    public function testConstruct()
     {
-        return $this->parameters;
+        $pointer = new Pointer('value');
+    }
+
+    /**
+     * @covers ::getPath
+     */
+    public function testGetPath()
+    {
+        $this->assertSame(
+            'value',
+            $this->pointer->getPath()
+        );
+    }
+
+    /**
+     * @covers ::getType
+     */
+    public function testGetType()
+    {
+        $this->assertSame(
+            'pointer',
+            $this->pointer->getType()
+        );
     }
 }

@@ -22,7 +22,7 @@ namespace Phramework\Exceptions;
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  */
-class PermissionException extends \Exception
+class PermissionException extends Exception
 {
     //The return url
     private $return;

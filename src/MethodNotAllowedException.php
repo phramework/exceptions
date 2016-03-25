@@ -23,24 +23,30 @@ namespace Phramework\Exceptions;
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  */
-class MethodNotAllowedException extends \Exception
+class MethodNotAllowedException extends Exception
 {
-    //Array with the Allowed methods
+    /**
+     * @var string[]
+     */
     private $allowedMethods;
 
     /**
-     *
-     * @param array $message \Exception message
-     * @param array $allowedMethods Allowed methods, should be returned in allow header.
+     * @param string $message \Exception message
+     * @param string[] $allowedMethods Allowed methods, should be returned in allow header.
      * @param integer $code Error code, Optional default 405
      */
-    public function __construct($message, $allowedMethods = [], $code = 405)
-    {
+    public function __construct(
+        $message = 'Method not allowed',
+        $allowedMethods = [],
+        $code = 405
+    ) {
         parent::__construct($message, $code);
         $this->allowedMethods = $allowedMethods;
     }
 
-
+    /**
+     * @return string[]
+     */
     public function getAllowedMethods()
     {
         return  $this->allowedMethods;

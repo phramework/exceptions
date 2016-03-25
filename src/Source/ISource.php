@@ -14,6 +14,7 @@
 namespace Phramework\Exceptions\Source;
 
 /**
+ * Points the source of the exception in request.
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  * @since 1.0.0
@@ -23,10 +24,10 @@ interface ISource
     /**
      * @return string
      */
-    public function getType();
+    public function getType() : string;
 
     /**
      * @return string
      */
-    public function getPath();
+    public function getPath() : string;
 }

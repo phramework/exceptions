@@ -23,7 +23,9 @@ use Phramework\Exceptions\Source\ISource;
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  * @since 1.0.0
  */
-class IncorrectParameterException extends \Exception implements \JsonSerializable
+class IncorrectParameterException
+    extends Exception
+    implements \JsonSerializable
 {
     /**
      * @var string
@@ -31,7 +33,7 @@ class IncorrectParameterException extends \Exception implements \JsonSerializabl
     private $parameter;
 
     /**
-     * @var string|null
+     * @var ISource|null
      */
     private $source;
 
@@ -45,15 +47,16 @@ class IncorrectParameterException extends \Exception implements \JsonSerializabl
      * @throws \Exception
      */
     public function __construct(
-        $failure = 'incorrect',
+        string $failure = 'incorrect',
         ISource $source = null,
-        $parameter = null
+        string $parameter = null
     ) {
         //if (!is_string($parameter)) {
         //    throw new \Exception ('IncorrectParameterException parameter must be string');
         //}
 
         parent::__construct('Incorrect parameter', 422);
+        
         $this->parameter = $parameter;
         $this->source    = $source;
         $this->failure   = $failure;
@@ -62,7 +65,7 @@ class IncorrectParameterException extends \Exception implements \JsonSerializabl
     /**
      * @return string
      */
-    public function getParameter()
+    public function getParameter() : string
     {
         return $this->parameter;
     }
@@ -70,7 +73,7 @@ class IncorrectParameterException extends \Exception implements \JsonSerializabl
     /**
      * @return ISource|null
      */
-    public function getSource()
+    public function getSource() : ISource
     {
         return $this->source;
     }
@@ -78,7 +81,7 @@ class IncorrectParameterException extends \Exception implements \JsonSerializabl
     /**
      * @return string
      */
-    public function getFailure()
+    public function getFailure() : string
     {
         return $this->failure;
     }

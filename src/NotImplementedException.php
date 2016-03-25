@@ -26,7 +26,7 @@ namespace Phramework\Exceptions;
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  * @since 1.0.0
  */
-class NotImplementedException extends \Exception
+class NotImplementedException extends Exception
 {
     public function __construct($message = 'Not Implemented', $code = 501)
     {

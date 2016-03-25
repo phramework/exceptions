@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright 2015 - 2016 Xenofon Spafaridis
+ * Copyright 2015-2016 Xenofon Spafaridis
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,17 +22,19 @@ namespace Phramework\Exceptions;
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache-2.0
  * @author Xenofon Spafaridis <nohponex@gmail.com>
  */
-class UnauthorizedException extends \Exception
+class UnauthorizedException extends Exception
 {
-    //The return url
+    /**
+     * @var null|string
+     */
     private $return;
 
     /**
      *
      * @param string $message \Exception message
-     * @param string $return Return url. Optional, default is FALSE.
+     * @param string|null $return Return url. Optional, default is FALSE.
      */
-    public function __construct($message = 'Unauthorized', $return = false)
+    public function __construct($message = 'Unauthorized', $return = null)
     {
         parent::__construct($message, 401);
         $this->return = $return;
