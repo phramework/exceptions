@@ -33,7 +33,7 @@ class MethodNotAllowedException extends Exception
     /**
      * @param string $message \Exception message
      * @param string[] $allowedMethods Allowed methods, should be returned in allow header.
-     * @param integer $code Error code, Optional default 405
+     * @param int $code Error code, Optional default 405
      */
     public function __construct(
         string $message = 'Method not allowed',
@@ -41,6 +41,7 @@ class MethodNotAllowedException extends Exception
         int $code = 405
     ) {
         parent::__construct($message, $code);
+        
         $this->allowedMethods = $allowedMethods;
     }
 

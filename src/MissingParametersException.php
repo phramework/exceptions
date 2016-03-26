@@ -48,7 +48,7 @@ class MissingParametersException extends Exception
         parent::__construct('Missing parameters', 422);
         
         $this->parameters = $parameters;
-        $this->source    = $source;
+        $this->source     = $source;
     }
 
     /**
@@ -57,5 +57,13 @@ class MissingParametersException extends Exception
     public function getParameters() : array
     {
         return $this->parameters;
+    }
+
+    /**
+     * @return ISource|null
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 }

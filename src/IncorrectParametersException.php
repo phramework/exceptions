@@ -24,22 +24,54 @@ namespace Phramework\Exceptions;
 class IncorrectParametersException extends Exception
 {
     /**
-     * @var IncorrectParameterException[]
+     * @var Exception[]
      */
-    private $parameters;
+    private $exceptions;
 
     /**
-     * @param IncorrectParameterException[] $parameters Incorrect parameters
+     * @todo documentation If IncorrectParametersException given then...
+     * @param (
+     * IncorrectParametersException
+     * |IncorrectParameterException
+     * |MissingParametersException)[] $exception Incorrect parameters
+     * @throws \Exception If a exception is not one of the allowed
      */
     public function __construct(
-        IncorrectParameterException ...$parameters
+        Exception ...$exception
     ) {
         parent::__construct('Incorrect parameters', 422);
-        $this->parameters = $parameters;
+
+        $parameters = [];
+
+        foreach ($exception as $parameter) {
+            switch (get_class($parameter)) {
+                case IncorrectParametersException::class:
+                    //merge with parameter's incorrect parameters
+                    $parameters = array_merge(
+                        $parameters,
+                        $parameter->getIncorrect()
+                    );
+                    break;
+                case IncorrectParameterException::class:
+                case MissingParametersException::class:
+                    //push
+                    $parameters[] = $parameter;
+                    break;
+                default:
+                    throw new \Exception(
+                        'Not allowed exception class in IncorrectParametersException'
+                    );
+            }
+        }
+
+        $this->exceptions = $parameters;
     }
 
-    public function getParameters() : array
+    /**
+     * @return Exception[]
+     */
+    public function getExceptions() : array
     {
-        return $this->parameters;
+        return $this->exceptions;
     }
 }
