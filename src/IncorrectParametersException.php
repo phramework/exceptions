@@ -49,7 +49,7 @@ class IncorrectParametersException extends Exception
                     //merge with parameter's incorrect parameters
                     $parameters = array_merge(
                         $parameters,
-                        $parameter->getIncorrect()
+                        $parameter->getExceptions()
                     );
                     break;
                 case IncorrectParameterException::class:
@@ -58,9 +58,10 @@ class IncorrectParametersException extends Exception
                     $parameters[] = $parameter;
                     break;
                 default:
-                    throw new \Exception(
-                        'Not allowed exception class in IncorrectParametersException'
-                    );
+                    throw new \Exception(sprintf(
+                        'Not allowed exception class in "%s"',
+                        self::class
+                    ));
             }
         }
 
