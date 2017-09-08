@@ -28,9 +28,8 @@ class UnauthorizedException extends \Exception
     private $return;
 
     /**
-     *
      * @param string $message \Exception message
-     * @param string $return Return url. Optional, default is FALSE.
+     * @param bool $return Return url. Optional, default is FALSE.
      */
     public function __construct($message = 'Unauthorized', $return = false)
     {
