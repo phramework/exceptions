@@ -14,7 +14,6 @@ class MissingParametersException extends \Exception
     private $parameters;
 
     /**
-     *
      * @param array $parameters Array with the names of missing parameters
      */
     public function __construct($parameters)

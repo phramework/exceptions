@@ -28,7 +28,6 @@ class IncorrectParametersException extends \Exception
     private $parameters;
 
     /**
-     *
      * @param array $parameters Array with the names of incorrect parameters
      */
     public function __construct($parameters)

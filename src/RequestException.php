@@ -26,8 +26,7 @@ namespace Phramework\Exceptions;
 class RequestException extends \Exception
 {
     /**
-     *
-     * @param array $message \Exception message
+     * @param string $message \Exception message
      * @param integer $code Error code, Optional default 400
      */
     public function __construct($message, $code = 400)
