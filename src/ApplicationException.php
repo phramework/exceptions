@@ -24,7 +24,7 @@ namespace Phramework\Exceptions;
  */
 class ApplicationException extends \Exception
 {
-   /**
+    /**
      * @var int
      */
     protected $applicationCode;
