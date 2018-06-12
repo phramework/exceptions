@@ -24,6 +24,9 @@ namespace Phramework\Exceptions;
  */
 class DatabaseException extends \Exception
 {
+    /** @var string|null */
+    protected $error;
+
     /**
      * Database \Exception
      *
@@ -34,5 +37,16 @@ class DatabaseException extends \Exception
     public function __construct($message, $error = null)
     {
         parent::__construct($message, 500);
+
+        $this->error = $error;
+    }
+
+    /**
+     * @since 0.2.0
+     * @return string|null
+     */
+    public function getError(): string
+    {
+        return $this->error;
     }
 }
